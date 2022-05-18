@@ -1,0 +1,1968 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>treinamento</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'navlinks.css' %}">
+    <link rel="stylesheet" href="{% static 'niassa.css' %}">
+    <link rel="stylesheet" href="{% static 'nampula.css' %}">
+    <link rel="stylesheet" href="{% static 'zambezia.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+</head>
+<body>
+  <div id="barraair"></div>
+<div class="projectos">
+  <div class="projecto" id="niassa">
+    <div class="navprojectos">
+                            
+      <ul id="nav-links">
+      <li class="forward"><h2 href="#">Comunidades Mapeadas de Niassa</h2></li>
+      <li><a href="#">Obter declaracao</a></li>
+      <span id="span1"><li class="upward"><a href="#">Mapa das Comunidades</a></li></h3></span> 
+      </ul>
+     
+  </div>
+    <div class="subprojecto">
+      <div class="mapa" id="mapaniassa">
+
+      </div>
+    <div class="projtabelas">
+      <div class="projtabela" id="luguesse" >
+        <div class="formulariogeral">
+          <form>
+            <input type="text" name="qluguesse" placeholder="Procure em Luguesse">
+      <i class="fas fa-search"></i>
+      <button type="submit">search</button>
+          </form>
+
+        </div>
+        <div class="tabelageral">
+          <table class="reference">
+            <tbody>
+                <tr>
+                    <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                </tr>
+                
+            </tbody>
+            <tbody>
+                {% for item in listaluguesse %}
+                
+                <tr>
+                    <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                </tr>
+                    
+                        {% endfor %}
+            </tbody>
+
+            </table>
+        </div>
+      
+      </div>
+      <div class="projtabela" id="lione" >
+        <div class="formulariogeral">
+          <form>
+            <input type="text"  name="qlione" placeholder="Procure em Lione">
+      <i class="fas fa-search"></i>
+      <button type="submit">search</button>
+          </form>
+
+        </div>
+        <div class="tabelageral">
+          <table class="reference">
+            <tbody>
+                <tr>
+                    <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                </tr>
+                
+            </tbody>
+            <tbody>
+                {% for item in listalion %}
+                
+                <tr>
+                    <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                </tr>
+                    
+                        {% endfor %}
+            </tbody>
+
+            </table>
+        </div>
+      
+      </div>
+      <div class="projtabela" id="chala" >
+        <div class="formulariogeral">
+          <form>
+            <input type="text" name="chala" placeholder="Procure em Chala">
+      <i class="fas fa-search"></i>
+      <button type="submit">search</button>
+          </form>
+
+        </div>
+        <div class="tabelageral">
+          <table class="reference">
+            <tbody>
+                <tr>
+                    <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                </tr>
+                
+            </tbody>
+            <tbody>
+                {% for item in listachala %}
+                
+                <tr>
+                    <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                </tr>
+                    
+                        {% endfor %}
+            </tbody>
+
+            </table>
+        </div>
+      
+      </div>
+      <div class="projtabela" id="missoro" >
+        <div class="formulariogeral">
+          <form>
+            <input type="text" name="qmissoro" placeholder="Procure em Missoro">
+      <i class="fas fa-search"></i>
+      <button type="submit">search</button>
+          </form>
+
+        </div>
+        <div class="tabelageral">
+          <table class="reference">
+            <tbody>
+                <tr>
+                    <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                </tr>
+                
+            </tbody>
+            <tbody>
+                {% for item in listamissoro %}
+                
+                <tr>
+                    <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                </tr>
+                    
+                        {% endfor %}
+            </tbody>
+
+            </table>
+        </div>
+      
+      </div>
+      <div class="projtabela" id="repele" >
+        <div class="formulariogeral">
+          <form>
+            <input type="text" name="qrepele"  placeholder="Procure em Repele">
+      <i class="fas fa-search"></i>
+      <button type="submit">search</button>
+          </form>
+
+        </div>
+        <div class="tabelageral">
+          <table class="reference">
+            <tbody>
+                <tr>
+                    <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                </tr>
+                
+            </tbody>
+            <tbody>
+                {% for item in listarepele %}
+                
+                <tr>
+                    <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                </tr>
+                    
+                        {% endfor %}
+            </tbody>
+
+            </table>
+        </div>
+      
+      </div>
+      <div class="projtabela" id="changaussa" >
+        <div class="formulariogeral">
+          <form>
+            <input type="text" name="qchangaussa" placeholder="Procure em Changaussa">
+      <i class="fas fa-search"></i>
+      <button type="submit">search</button>
+          </form>
+
+        </div>
+        <div class="tabelageral">
+          <table class="reference">
+            <tbody>
+                <tr>
+                    <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                </tr>
+                
+            </tbody>
+            <tbody>
+                {% for item in listachangaussa %}
+                
+                <tr>
+                    <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                </tr>
+                    
+                        {% endfor %}
+            </tbody>
+
+            </table>
+        </div>
+      
+      </div>
+      <div class="projtabela" id="arama" >
+        <div class="formulariogeral">
+          <form>
+            <input type="text" name="qarama" placeholder="Procure em Arama">
+      <i class="fas fa-search"></i>
+      <button type="submit">search</button>
+          </form>
+
+        </div>
+        <div class="tabelageral">
+          <table class="reference">
+            <tbody>
+                <tr>
+                    <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                </tr>
+                
+            </tbody>
+            <tbody>
+                {% for item in listaarama %}
+                
+                <tr>
+                    <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                </tr>
+                    
+                        {% endfor %}
+            </tbody>
+
+            </table>
+        </div>
+      
+      </div>
+      <div class="projtabela" id="napalavi" >
+        <div class="formulariogeral">
+          <form>
+            <input type="text" name="qnapalavi" placeholder="Procure em Napalavi">
+      <i class="fas fa-search"></i>
+      <button type="submit">search</button>
+          </form>
+
+        </div>
+        <div class="tabelageral">
+          <table class="reference">
+            <tbody>
+                <tr>
+                    <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                </tr>
+                
+            </tbody>
+            <tbody>
+                {% for item in listanapalavi %}
+                
+                <tr>
+                    <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                </tr>
+                    
+                        {% endfor %}
+            </tbody>
+
+            </table>
+        </div>
+      
+      </div>
+    </div>
+      
+
+    </div>
+    
+  </div>
+  <div class="projecto" id="zambezia">
+    <div class="navprojectos">
+                            
+      <ul id="nav-links">
+      <li class="forward"><h2 href="#">Comunidades Mapeadas de Zambezia</h2></li>
+      <li><a href="#">Obter declaracao</a></li>
+      <span id="span1"><li class="upward"><a href="#">Mapa das Comunidades</a></li></h3></span> 
+      </ul>
+     
+  </div>
+    <div class="subprojecto">
+      <div class="mapa" id="mapazambezia">
+
+      </div>
+      <div class="projtabelas">
+        <div class="projtabela" id="coloico" >
+          <div class="formulariogeral">
+            <label for="">sou de coloico</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="chisse" >
+          <div class="formulariogeral">
+            <label for="">sou de chisse</label>
+  
+          </div>
+          <div class="tabelageral">
+            
+          </div>
+        
+        </div>
+        <div class="projtabela" id="mugarula" >
+          <div class="formulariogeral">
+           <label for="">sou de mugarula</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="libanda" >
+          <div class="formulariogeral">
+            <label for="">sou de libanda</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="samalungo" >
+          <div class="formulariogeral">
+            <label for="">sou de samalungo</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="mongessa" >
+          <div class="formulariogeral">
+            <label for="">sou de mongessa</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="tetete" >
+          <div class="formulariogeral">
+            <label for="">sou de tetete</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="napila" >
+          <div class="formulariogeral">
+            <label for="">sou de napila</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="mirintxe" >
+          <div class="formulariogeral">
+            <label for="">sou de mirintxe</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="macice" >
+          <div class="formulariogeral">
+            <label for="">sou de Macice         
+            </label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="muagiua" >
+          <div class="formulariogeral">
+            <label for="">sou de muagiua</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="insurupi" >
+          <div class="formulariogeral">
+            <label for="">sou de insurupi</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="namarua" >
+          <div class="formulariogeral">
+            <label for="">sou de namarua</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="rumala" >
+          <div class="formulariogeral">
+            <label for="">sou de rumala</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="veriha" >
+          <div class="formulariogeral">
+            <label for="">sou de veriha</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="ethocola" >
+          <div class="formulariogeral">
+            <label for="">sou de ethocola</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="muduela" >
+          <div class="formulariogeral">
+            <label for="">sou de muduela</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="mukhopo" >
+          <div class="formulariogeral">
+            <label for="">sou de mukhopo</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="muthipa" >
+          <div class="formulariogeral">
+            <label for="">sou de muthipa</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="chaima" >
+          <div class="formulariogeral">
+            <label for="">sou de chaima</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="marcusa" >
+          <div class="formulariogeral">
+            <label for="">sou de marcusa</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="wadola" >
+          <div class="formulariogeral">
+            <label for="">sou de wadola</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="nhumuliua" >
+          <div class="formulariogeral">
+            <label for="">sou de nhumuliua</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="arjuane" >
+          <div class="formulariogeral">
+            <label for="">sou de arjuane</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="linda" >
+          <div class="formulariogeral">
+            <label for="">sou de linda</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="cutal" >
+          <div class="formulariogeral">
+            <label for="">sou de cutal</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+        <div class="projtabela" id="rampua" >
+          <div class="formulariogeral">
+            <label for="">sou de rampua</label>
+  
+          </div>
+          <div class="tabelageral">
+            <table class="reference">
+              <tbody>
+                  <tr>
+                      <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                  </tr>
+                  
+              </tbody>
+              <tbody>
+                  {% for item in lista %}
+                  
+                  <tr>
+                      <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                  </tr>
+                      
+                          {% endfor %}
+              </tbody>
+  
+              </table>
+          </div>
+        
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="projecto" id="nampula">
+    <div class="navprojectos">
+                            
+      <ul id="nav-links">
+      <li class="forward"><h2 href="#">Comunidades Mapeadas de Nampula</h2></li>
+      <li><a href="#">Obter declaracao</a></li>
+      <span id="span1"><li class="upward"><a href="#">Mapa das Comunidades</a></li></h3></span> 
+      </ul>
+     
+  </div>
+    <div class="subprojecto">
+      <div class="mapa" id="mapanampula">
+
+      </div>
+      
+        <div class="projtabelas">
+          <div class="projtabela" id="niessa" >
+            <div class="formulariogeral">
+              <label for="">sou de niessa</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="poiane" >
+            <div class="formulariogeral">
+              <label for="">sou de poiane</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="namuli" >
+            <div class="formulariogeral">
+             <label for="">sou de namuli</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="junho" >
+            <div class="formulariogeral">
+              <label for="">sou de junho</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="namicopo" >
+            <div class="formulariogeral">
+              <label for="">sou de namicopo</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="curapine" >
+            <div class="formulariogeral">
+              <label for="">sou de curapine</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="muhala" >
+            <div class="formulariogeral">
+              <label for="">sou de muhala</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          
+          <div class="projtabela" id="naihava" >
+            <div class="formulariogeral">
+              <label for="">sou de naihava         
+              </label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="namihasse" >
+            <div class="formulariogeral">
+              <label for="">sou de namihasse</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="mutekereque" >
+            <div class="formulariogeral">
+              <label for="">sou de mutekereque</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="mesa" >
+            <div class="formulariogeral">
+              <label for="">sou de mesa</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="chica" >
+            <div class="formulariogeral">
+              <label for="">sou de chica</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="naculue" >
+            <div class="formulariogeral">
+              <label for="">sou de naculue</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="namalili" >
+            <div class="formulariogeral">
+              <label for="">sou de namalili</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="pajara" >
+            <div class="formulariogeral">
+              <label for="">sou de pajara</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="unidade" >
+            <div class="formulariogeral">
+              <label for="">sou de unidade</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="nanrele" >
+            <div class="formulariogeral">
+              <label for="">sou de nanrela</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="mutepa" >
+            <div class="formulariogeral">
+              <label for="">sou de mutepa</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="marrocane" >
+            <div class="formulariogeral">
+              <label for="">sou de marrocane</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="namacula" >
+            <div class="formulariogeral">
+              <label for="">sou de namacula</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="napipine" >
+            <div class="formulariogeral">
+              <label for="">sou de napipine</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="intatapila" >
+            <div class="formulariogeral">
+              <label for="">sou de intatapila</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="mutenapo" >
+            <div class="formulariogeral">
+              <label for="">sou de mutenapo</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="nametil" >
+            <div class="formulariogeral">
+              <label for="">sou de nametil</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="nacuacuali" >
+            <div class="formulariogeral">
+              <label for="">sou de nacuacuali</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="nathove" >
+            <div class="formulariogeral">
+              <label for="">sou de nathove</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="malate" >
+            <div class="formulariogeral">
+              <label for="">sou de malate</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="monapo" >
+            <div class="formulariogeral">
+              <label for="">sou de monapo</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="mavoto" >
+            <div class="formulariogeral">
+              <label for="">sou de mavoto</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+         
+         
+          <div class="projtabela" id="mueteia" >
+            <div class="formulariogeral">
+              <label for="">sou de mueteia</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="cuirini" >
+            <div class="formulariogeral">
+              <label for="">sou de cuirini</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+          <div class="projtabela" id="malapa" >
+            <div class="formulariogeral">
+              <label for="">sou de malapa </label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+         
+          <div class="projtabela" id="palaco" >
+            <div class="formulariogeral">
+              <label for="">sou de palaco</label>
+    
+            </div>
+            <div class="tabelageral">
+              <table class="reference">
+                <tbody>
+                    <tr>
+                        <th> Recibo </th><th> Nome </th><th> Baixar declaracao </th>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    {% for item in lista %}
+                    
+                    <tr>
+                        <td> {{item.recibo}} </td><td> {{item.nome}} {{item.apelido}}</td><td> <a href="{{item.documento.url}}" download="{{item.recibo}}.pdf" type="application/pdf"> baixar</a></td>
+                    </tr>
+                        
+                            {% endfor %}
+                </tbody>
+    
+                </table>
+            </div>
+          
+          </div>
+        </div>
+      
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <!-- <div id="tab">
+
+    </div>
+    <div id='map'>
+    </div> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'WFS.js' %}"></script>
+    <script src="{% static 'function.js' %}"></script>
+    <script src="{% static 'functiozamb.js' %}"></script>
+    <script src="{% static 'functionampula.js' %}"></script>
+</body>
+</html>
+{% endblock %}
